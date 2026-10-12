@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Assurance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --night: #101c2b;
+        --night-deep: #0b1522;
+        --surface: #16263a;
+        --surface-soft: #132236;
+        --ink: #f4eee1;
+        --muted: #c8c1b3;
+        --gold: #dcbf75;
+        --gold-soft: #f0dca8;
+        --rule: rgba(220, 191, 117, 0.28);
+        --shadow: rgba(0, 0, 0, 0.28);
+        --serif: "Newsreader", Georgia, serif;
+        --sans: "DM Sans", system-ui, sans-serif;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --night: #07111d;
+          --night-deep: #040a12;
+          --surface: #0c1a2a;
+          --surface-soft: #091725;
+          --ink: #f5efe4;
+          --muted: #c5bdae;
+          --gold: #dfc27a;
+          --gold-soft: #f3dfaa;
+          --rule: rgba(223, 194, 122, 0.25);
+          --shadow: rgba(0, 0, 0, 0.42);
+        }
+      }
+
+      * { box-sizing: border-box; }
+
+      html {
+        min-height: 100%;
+        background: var(--night-deep);
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100%;
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 15% 8%, rgba(220, 191, 117, 0.055) 0 1px, transparent 1.5px),
+          radial-gradient(circle at 82% 24%, rgba(220, 191, 117, 0.045) 0 1px, transparent 1.5px),
+          linear-gradient(180deg, var(--night) 0%, var(--night-deep) 100%);
+        background-size: 91px 91px, 137px 137px, auto;
+        font-family: var(--sans);
+        font-size: 17px;
+        line-height: 1.72;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      main {
+        width: min(100% - 32px, 760px);
+        margin: 0 auto;
+        padding: max(36px, env(safe-area-inset-top)) 0 max(72px, calc(env(safe-area-inset-bottom) + 52px));
+      }
+
+      .opening {
+        min-height: min(78svh, 700px);
+        display: grid;
+        align-content: center;
+        padding: 64px 0 72px;
+        text-align: center;
+      }
+
+      .opening::before {
+        content: "";
+        width: 42px;
+        height: 1px;
+        margin: 0 auto 32px;
+        background: var(--gold);
+        box-shadow: 0 0 16px rgba(220, 191, 117, 0.2);
+      }
+
+      .date {
+        margin: 0 0 23px;
+        color: var(--gold);
+        font-size: 0.74rem;
+        font-weight: 600;
+        letter-spacing: 0.17em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      blockquote,
+      .closing-words {
+        font-family: var(--serif);
+      }
+
+      h1 {
+        max-width: 670px;
+        margin: 0 auto;
+        font-size: clamp(2.75rem, 9vw, 5.3rem);
+        font-weight: 500;
+        letter-spacing: -0.035em;
+        line-height: 0.98;
+        text-wrap: balance;
+      }
+
+      .opening-note {
+        max-width: 470px;
+        margin: 31px auto 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .down-mark {
+        width: 1px;
+        height: 54px;
+        margin: 46px auto 0;
+        background: linear-gradient(var(--rule), transparent);
+      }
+
+      section {
+        position: relative;
+        padding: 68px 0;
+        border-top: 1px solid var(--rule);
+      }
+
+      .section-number {
+        display: block;
+        margin-bottom: 12px;
+        color: var(--gold);
+        font-family: var(--serif);
+        font-size: 0.93rem;
+        font-variant-numeric: oldstyle-nums;
+      }
+
+      h2 {
+        max-width: 650px;
+        margin: 0 0 26px;
+        color: var(--gold-soft);
+        font-size: clamp(2rem, 7vw, 3.25rem);
+        font-weight: 500;
+        letter-spacing: -0.025em;
+        line-height: 1.04;
+        text-wrap: balance;
+      }
+
+      p { margin: 0 0 1.15em; }
+      p:last-child { margin-bottom: 0; }
+
+      .scripture {
+        margin: 31px 0;
+        padding: 4px 0 3px 27px;
+        border-left: 1px solid var(--gold);
+      }
+
+      blockquote {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(1.55rem, 5.5vw, 2.38rem);
+        font-weight: 400;
+        line-height: 1.24;
+        text-wrap: pretty;
+      }
+
+      cite {
+        display: block;
+        margin-top: 17px;
+        color: var(--gold);
+        font-family: var(--sans);
+        font-size: 0.78rem;
+        font-style: normal;
+        font-weight: 600;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .answer {
+        max-width: 670px;
+        color: var(--muted);
+      }
+
+      .answer strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      .foundation {
+        margin-top: 30px;
+        padding: 24px 25px;
+        background: var(--surface-soft);
+        box-shadow: 0 18px 42px -30px var(--shadow);
+      }
+
+      .foundation p {
+        color: var(--ink);
+        font-family: var(--serif);
+        font-size: 1.25rem;
+        line-height: 1.4;
+      }
+
+      .comparison {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        margin: 34px 0 0;
+        background: var(--rule);
+      }
+
+      .comparison > div {
+        padding: 26px;
+        background: var(--surface);
+      }
+
+      .comparison h3,
+      .confession h3 {
+        margin: 0 0 11px;
+        color: var(--gold);
+        font-family: var(--sans);
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .comparison p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .plain-list {
+        display: grid;
+        gap: 0;
+        margin: 31px 0 0;
+        padding: 0;
+        list-style: none;
+        border-top: 1px solid var(--rule);
+      }
+
+      .plain-list li {
+        position: relative;
+        padding: 20px 0 20px 31px;
+        color: var(--muted);
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .plain-list li::before {
+        content: "";
+        position: absolute;
+        top: 31px;
+        left: 5px;
+        width: 8px;
+        height: 8px;
+        border: 1px solid var(--gold);
+        transform: rotate(45deg);
+      }
+
+      .plain-list strong { color: var(--ink); }
+
+      .confession {
+        display: grid;
+        gap: 1px;
+        margin-top: 35px;
+        background: var(--rule);
+      }
+
+      .confession article {
+        padding: 27px;
+        background: var(--surface);
+      }
+
+      .confession p {
+        color: var(--ink);
+        font-family: var(--serif);
+        font-size: 1.23rem;
+        line-height: 1.48;
+      }
+
+      .grace {
+        margin-top: 35px;
+        color: var(--gold-soft);
+        font-family: var(--serif);
+        font-size: clamp(1.8rem, 6vw, 2.65rem);
+        line-height: 1.1;
+      }
+
+      .close {
+        padding: 94px 0 28px;
+        border-top: 1px solid var(--rule);
+        text-align: center;
+      }
+
+      .close::after {
+        content: "";
+        display: block;
+        width: 42px;
+        height: 1px;
+        margin: 36px auto 0;
+        background: var(--gold);
+      }
+
+      .closing-words {
+        max-width: 650px;
+        margin: 0 auto;
+        color: var(--ink);
+        font-size: clamp(2.5rem, 9vw, 4.9rem);
+        font-weight: 500;
+        letter-spacing: -0.035em;
+        line-height: 0.98;
+        text-wrap: balance;
+      }
+
+      .closing-date {
+        margin-top: 22px;
+        color: var(--gold);
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 600px) {
+        body { font-size: 16px; line-height: 1.68; }
+        main { width: min(100% - 36px, 760px); }
+        .opening { min-height: 73svh; padding: 45px 0 63px; }
+        section { padding: 55px 0; }
+        .scripture { padding-left: 20px; }
+        .comparison { grid-template-columns: 1fr; }
+        .comparison > div, .confession article { padding: 23px 20px; }
+        .foundation { margin-left: -6px; margin-right: -6px; padding: 22px 20px; }
+        .close { padding-top: 76px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+      }
+
+      @media print {
+        :root {
+          --night: #fff;
+          --night-deep: #fff;
+          --surface: #f4f0e7;
+          --surface-soft: #f4f0e7;
+          --ink: #171717;
+          --muted: #343434;
+          --gold: #765a1d;
+          --gold-soft: #5f4716;
+          --rule: rgba(52, 52, 52, 0.28);
+        }
+        body { background: #fff; }
+        .opening { min-height: auto; padding: 30px 0 65px; }
+        section { break-inside: avoid; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="opening">
+        <p class="date">October 11, 2026</p>
+        <h1>“My name’s written in heaven. I’m with Jesus.”</h1>
+        <p class="opening-note">When fear returns in the night, come back to what was settled.</p>
+        <div class="down-mark" aria-hidden="true"></div>
+      </header>
+
+      <section aria-labelledby="know-heading">
+        <span class="section-number">01</span>
+        <h2 id="know-heading">You may know.</h2>
+        <div class="scripture">
+          <blockquote>“That you may know that you have eternal life.”</blockquote>
+          <cite>1 John 5:13</cite>
+        </div>
+        <div class="answer">
+          <p>This is your life verse. <strong>Know</strong> — not guess, not feel, not earn.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="written-heading">
+        <span class="section-number">02</span>
+        <h2 id="written-heading">Your name is written in heaven.</h2>
+        <div class="scripture">
+          <blockquote>“Do not rejoice in this, that the spirits are subject to you, but rejoice that your names are written in heaven.”</blockquote>
+          <cite>Luke 10:20</cite>
+        </div>
+        <div class="answer">
+          <p>Jesus separates the miracle from the foundation. The answered prayer is real, and it is worth rejoicing in — but it is not the ground of your salvation.</p>
+        </div>
+        <aside class="foundation" aria-label="What the miracle means">
+          <p><strong>The miracle is fruit, not foundation.</strong> Your confidence is Christ’s finished work, not the healing.</p>
+        </aside>
+      </section>
+
+      <section aria-labelledby="known-heading">
+        <span class="section-number">03</span>
+        <h2 id="known-heading">You are known by God.</h2>
+        <div class="scripture">
+          <blockquote>“If anyone loves God, he is known by God.”</blockquote>
+          <cite>1 Corinthians 8:3</cite>
+        </div>
+        <div class="answer">
+          <p>This is the direct answer to <strong>“I never knew you.”</strong> You love God. You are known by God.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="matthew-heading">
+        <span class="section-number">04</span>
+        <h2 id="matthew-heading">Why Matthew 7:23 does not describe you.</h2>
+        <div class="comparison" aria-label="The difference between Matthew 7 and Tyler's confidence">
+          <div>
+            <h3>Their plea</h3>
+            <p>“Did we not prophesy in your name… and do many mighty works?” Their plea was a résumé of works.</p>
+          </div>
+          <div>
+            <h3>Your confidence</h3>
+            <p>Not what you did, but what Christ finished. Not the miracle, but grace received by faith.</p>
+          </div>
+        </div>
+        <ul class="plain-list">
+          <li><strong>“Never” means never.</strong> They never had the relationship; this is not a believer who was known and then lost.</li>
+          <li><strong>They stood on their works.</strong> You refused to make the healing your foundation and rejoiced that your name is written in heaven instead.</li>
+          <li><strong>They were workers of lawlessness.</strong> Their mighty works stood beside lives without repentance.</li>
+          <li><strong>You love God and are known by God.</strong> That is the direct opposite of “I never knew you.”</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="spirit-heading">
+        <span class="section-number">05</span>
+        <h2 id="spirit-heading">The blasphemy of the Holy Spirit.</h2>
+        <div class="scripture">
+          <blockquote>“For they were saying, ‘He has an unclean spirit.’”</blockquote>
+          <cite>Mark 3:30</cite>
+        </div>
+        <div class="answer">
+          <p>They saw the Spirit’s clear work through Jesus and called it demonic. This was a <strong>settled, willful verdict</strong> — not a doubt, not a slip, and not an intrusive thought.</p>
+          <p>Those who commit it do not fear they have committed it. A heart running to Jesus is the opposite of its character. The Spirit in you testifies <strong>for Christ</strong>, not against Him.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="grace-heading">
+        <span class="section-number">06</span>
+        <h2 id="grace-heading">What you have settled.</h2>
+        <div class="confession">
+          <article>
+            <h3>Chosen with full knowledge</h3>
+            <p>Election with full foreknowledge.</p>
+          </article>
+          <article>
+            <h3>The finished work</h3>
+            <p>The finished work covers all sin.</p>
+          </article>
+          <article>
+            <h3>Faith is received</h3>
+            <p>Faith itself is God’s gift.</p>
+          </article>
+        </div>
+        <p class="grace">“It’s all grace.”</p>
+      </section>
+
+      <footer class="close">
+        <p class="closing-words">“My name’s written in heaven. I’m with Jesus.”</p>
+        <p class="closing-date">October 11, 2026</p>
+      </footer>
+    </main>
+  </body>
+</html>
