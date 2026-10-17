@@ -65,6 +65,31 @@
         text-rendering: optimizeLegibility;
       }
 
+      .home-pill {
+        position: fixed;
+        top: max(14px, env(safe-area-inset-top));
+        left: max(14px, env(safe-area-inset-left));
+        z-index: 10;
+        display: inline-block;
+        padding: 7px 14px;
+        border: 1px solid var(--rule);
+        border-radius: 999px;
+        background: var(--surface);
+        color: var(--gold-soft);
+        font-family: var(--sans);
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        line-height: 1.4;
+        text-decoration: none;
+        box-shadow: 0 10px 24px -14px var(--shadow);
+      }
+
+      .home-pill:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+
       main {
         width: min(100% - 32px, 760px);
         margin: 0 auto;
@@ -359,12 +384,14 @@
           --rule: rgba(52, 52, 52, 0.28);
         }
         body { background: #fff; }
+        .home-pill { display: none; }
         .opening { min-height: auto; padding: 30px 0 65px; }
         section { break-inside: avoid; }
       }
     </style>
   </head>
   <body>
+    <a class="home-pill" href="https://jesuslovestyler.com/">⌂ Home</a>
     <main>
       <header class="opening">
         <h1>“My name is written in heaven. I’m with Jesus.”</h1>
@@ -470,5 +497,6 @@
         <p class="closing-words">“My name is written in heaven. I’m with Jesus.”</p>
       </footer>
     </main>
+    <script data-goatcounter="https://jesuslovestyler.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   </body>
 </html>
